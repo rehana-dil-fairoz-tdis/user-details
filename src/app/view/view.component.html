@@ -1,0 +1,54 @@
+ <div class="container-fluid " style="text-align: center;">
+    <table class="table  table-bordered colour background">
+        <thead class="bg-secondary text-white">
+            <tr class="colour">
+                <th>Id &nbsp;<i class="fa fa-sort" aria-hidden="true"></i></th>
+                <th>
+                    <a>
+                        Name &nbsp;<i class="fa fa-sort" aria-hidden="true"></i></a></th>
+                <th>
+                    <a>
+                        Email &nbsp;<i class="fa fa-sort" aria-hidden="true"></i></a></th>
+                <th>
+                    <a>
+                        Address &nbsp;<i class="fa fa-sort" aria-hidden="true"></i></a></th>
+
+                <th>
+                    <a>
+                        Mobile &nbsp;<i class="fa fa-sort" aria-hidden="true"></i></a></th>
+
+                <th>
+                    <a>
+                        Country &nbsp;<i class="fa fa-sort" aria-hidden="true"></i></a></th>
+
+                <th>
+                    <a>
+                        Pincode &nbsp;<i class="fa fa-sort" aria-hidden="true"></i></a></th>
+                <th>
+                    <a>
+                        Edit &nbsp;<i class="fa fa-sort" aria-hidden="true"></i> </a></th>
+                </tr>
+            </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+
+                <!-- {{ user | json }} -->
+                    
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.address}}</td>
+                <td>{{user.mobile}}</td>
+                <td>{{user.pincode}}</td>
+                <td>{{user.country}}</td>
+         
+            <td>
+                <button type="submit">
+                     <span routerLink="/login/{{user.id}}/" >Edit</span>
+                </button>
+                    
+            </td>
+        </tr>
+        </tbody>
+    </table>
+ </div> 

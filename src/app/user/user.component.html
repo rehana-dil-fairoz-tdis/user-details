@@ -1,0 +1,72 @@
+<ng-container>
+  <section style="text-align: center;">
+  <h5 class="text-white mt-2  userdata" style ="font-style: italic; font-size: xx-large;"><b>Users Registration Form Data</b></h5>
+
+  <div style = "color:red;">{{ message }}</div>
+
+  <div class="main">
+    <form [formGroup] = "userForm" (ngSubmit) ="onSubmit()"> 
+
+      <div class = "form-group" >
+        <p class="alignn"><b> Name: </b>
+        <input type ="text" class = "form-control" name ="name"  formControlName ="name" placeholder="Name" 
+        [class.is-invalid]="f.name.touched && f.name.invalid"/> </p>
+        <div class="form-control-feedback" *ngIf = "f.name.touched && f.name.invalid">
+            <p *ngIf = "f.name.errors.required" class = "alert-danger" style = "color:red;">Name is required</p>
+            <p *ngIf = "f.name.errors.pattern" class = "alert-danger" style = "color:red;">Name cannot contain special characters</p>
+        </div>
+      </div>
+
+    <div class = "form-group" >
+      <p class="alignn"><b> Email: </b>
+      <input type ="text" class = "form-control" name ="email"  formControlName ="email" placeholder="Email"
+      [class.is-invalid]="f.email.touched && f.email.invalid"/> </p>
+      <div class="form-control-feedback" *ngIf = "f.email.touched && f.email.invalid">
+          <p *ngIf = "f.email.errors.required" class = "alert-danger" style = "color:red;">Email is required</p>
+          <p *ngIf = "f.email.errors.pattern" class = "alert-danger" style = "color:red;">Please provide correct email</p>
+      </div>
+    </div>
+
+    <div class = "form-group" >
+      <p class="alignn"><b> Address: </b>
+      <input type ="text" class = "form-control" name ="address"  formControlName ="address" placeholder="Address" 
+      [class.is-invalid]="f.address.touched && f.address.invalid"/> </p>
+      <div class="form-control-feedback" *ngIf = "f.address.touched && f.address.invalid">
+        <p *ngIf = "f.address.errors.required" class = "alert-danger" style = "color:red;">Address is required</p>
+      </div>
+    </div>
+
+    <div class = "form-group" >
+      <p class="alignn"><b> Mobile: </b>
+      <input type ="text" class = "form-control" name ="mobile"  formControlName ="mobile" placeholder="Mobile Number"
+      [class.is-invalid]="f.mobile.touched && f.mobile.invalid"/> </p>
+      <div class="form-control-feedback" *ngIf = "f.mobile.touched && f.mobile.invalid">
+        <p *ngIf = "f.mobile.errors.required" class = "alert-danger" style = "color:red;">Mobile is required</p>
+      </div>
+    </div>
+
+    <div class = "form-group" >
+      <p class="alignn"><b> Pincode: </b>
+      <input type ="text" class = "form-control" name ="pincode"  formControlName ="pincode" placeholder="Pincode" 
+      [class.is-invalid]="f.pincode.touched && f.pincode.invalid"/> </p>
+      <div class="form-control-feedback" *ngIf = "f.pincode.touched && f.pincode.invalid">
+        <p *ngIf = "f.pincode.errors.required" class = "alert-danger" style = "color:red;">Pincode is required</p>
+        <p *ngIf = "f.pincode.errors.minlength" class = "alert-danger" style = "color:red;">Pincode contains minimum of 5 characters</p>
+      </div>
+    </div>
+
+    <div class = "form-group">
+      <p class="alignn"><b> Country: </b>
+        <select class ="form-control" formControlName ="country">
+            <option *ngFor= "let country of countries" >{{ country }}</option>
+        </select> </p>
+    </div>
+        <br> 
+        <div class="col-lg-4">
+           <button class=" form-control btn btn-primary redius" (click)="click(userForm.value)"> Submit </button> 
+           <button class=" form-control btn btn-success redius" (click)="updateData(userForm.value)"> Update </button>
+      </div>
+      </form>
+    </div>
+  </section>
+</ng-container>

@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "name": "Abc",
+      "email": "admin@thrymr.net",
+      "address": "14857",
+      "pincode": "123456",
+      "mobile": "1234567895",
+      "country": "India",
+      "id": 1
+    }
+  ]
+}
